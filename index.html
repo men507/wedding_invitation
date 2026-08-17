@@ -40,7 +40,7 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.g-item{aspect-ratio:1;background:#ece8e1;border:0;padding:0;overflow:hidden;display:block;cursor:pointer}.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.g-item:hover img{transform:scale(1.04)}.gallery-extra{display:none}.gallery.is-expanded .gallery-extra{display:block}.g-btn{display:block;width:100%;margin-top:12px;padding:12px;background:transparent;border:1px solid #d8cfc2;color:#776c5e;text-align:center;font-family:inherit;font-size:11px;letter-spacing:.04em;cursor:pointer}
 .lightbox{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(26,23,20,.92);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;padding:22px}.lightbox.is-open{opacity:1;visibility:visible}.lightbox figure{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.lightbox-image{max-width:100%;max-height:calc(100dvh - 95px);object-fit:contain;box-shadow:0 14px 42px rgba(0,0,0,.3)}.lightbox-caption{color:rgba(255,255,255,.78);font-size:11px;letter-spacing:.08em}.lightbox button{position:absolute;border:0;background:transparent;color:#fff;font-family:Arial,sans-serif;cursor:pointer;z-index:1}.lightbox-close{top:14px;right:17px;font-size:33px;font-weight:200;line-height:1;padding:10px}.lightbox-nav{top:50%;transform:translateY(-50%);font-size:44px;font-weight:200;padding:16px 11px}.lightbox-prev{left:4px}.lightbox-next{right:4px}.is-lightbox-open{overflow:hidden}
-.acc-btn{padding:14px 15px;background:#f8f6f2;border:1px solid var(--line);display:flex;justify-content:space-between;font-size:12px;color:#49433b;margin-bottom:2px;font-weight:500}.acc-open{padding:13px 15px;background:#fffefd;border:1px solid var(--line);border-top:none;font-size:12px;color:#625b51;line-height:1.9;margin-bottom:9px}.acc-btn span:last-child{color:#a69885!important}
+.account-card{margin-bottom:8px}.account-toggle{width:100%;padding:14px 15px;background:#f8f6f2;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font:inherit;font-size:12px;color:#49433b;cursor:pointer;font-weight:500}.account-toggle:focus-visible{outline:2px solid #b9aa94;outline-offset:2px}.account-chevron{color:#a69885;font-size:16px;font-weight:300;line-height:1;transition:transform .2s ease}.account-toggle[aria-expanded="true"] .account-chevron{transform:rotate(45deg)}.account-panel{padding:13px 15px;background:#fffefd;border:1px solid var(--line);border-top:none;font-size:12px;color:#625b51;line-height:1.9}.account-panel[hidden]{display:none}.account-number{color:#8a7b69;letter-spacing:.03em}
 
 .ending{background:#f4f1eb;padding:34px 24px 36px;text-align:center;position:relative}.ending::before{content:'';position:absolute;top:18px;left:50%;width:28px;height:1px;background:#cfc3b2;transform:translateX(-50%)}.e-msg{font-size:13px;color:#554f47;line-height:2;margin-bottom:19px}.e-div{display:flex;align-items:center;gap:9px;margin:0 42px 13px}.e-line{flex:1;height:1px;background:#d9d0c3}.e-names{font-size:14px;color:#756a5a;letter-spacing:.1em;font-family:Georgia,serif;font-style:italic;margin-bottom:20px}.e-share{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#706554;border:1px solid #d3c8b9;padding:10px 16px;border-radius:22px;background:rgba(255,255,255,.45)}
 @media(max-width:430px){body{padding:0;background:var(--paper)}.wrap{width:100%}.label{display:none}.phone{border:0;box-shadow:none}}
@@ -65,7 +65,7 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
     <div class="sec sec-dark"><p class="s-label">예식 안내</p><div class="datebox"><p class="datenum">01.16</p><p class="datesub">2027 · Saturday</p><div class="d-div"></div><p class="venue">오후 5시 · H스퀘어웨딩홀</p></div><p class="dday-text" id="dday-text" aria-live="polite">예식일까지 계산 중</p><div class="cd-row"><div class="cd-item"><div class="cd-num" id="days">--</div><div class="cd-unit">Days</div></div><div class="cd-item"><div class="cd-num" id="hours">--</div><div class="cd-unit">Hours</div></div><div class="cd-item"><div class="cd-num" id="minutes">--</div><div class="cd-unit">Min</div></div><div class="cd-item"><div class="cd-num" id="seconds">--</div><div class="cd-unit">Sec</div></div></div></div>
     <div class="sec"><p class="s-label">Location</p><div class="map-wrap"><div id="naver-map" class="map-canvas">네이버지도를 준비하고 있습니다.<br>Client ID를 설정해 주세요.</div><div class="map-actions"><a class="map-action" id="map-search-link" href="https://map.naver.com/p/" target="_blank" rel="noopener">네이버지도에서 보기</a><a class="map-action" id="map-route-link" href="https://map.naver.com/p/directions/" target="_blank" rel="noopener">길찾기</a></div></div><div class="transport"><div class="t-icon">🚇</div><div><p class="t-type">지하철</p><p class="t-desc">2호선 한양대역 1번출구<br>5호선 왕십리역 6번출구</p></div></div><div class="transport"><div class="t-icon">🚗</div><div><p class="t-type">주차</p><p class="t-desc">동문회관 예식부 주차장<br>1시간 30분 무료</p></div></div></div>
     <div class="sec sec-dark"><p class="s-label">Gallery</p><div class="gallery" id="gallery"><button class="g-item" type="button"><img src="images/gallery-04.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-05.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-07.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-10.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-12.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-18.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-19.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-20.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-17.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-01.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-02.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-03.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-06.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-08.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-09.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-11.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-13.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-14.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-15.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-16.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button></div><button class="g-btn" id="gallery-toggle" type="button">+ 사진 더보기</button></div>
-    <div class="sec"><p class="s-label">마음 전하실 곳</p><div class="acc-btn"><span>🤵 신랑측</span><span>▼</span></div><div class="acc-open">하나은행 · 김재혁<br><span style="color:#8a7b69">254-910453-01107</span></div><div class="acc-btn"><span>👰 신부측</span><span>▼</span></div></div>
+    <div class="sec"><p class="s-label">마음 전하실 곳</p><div class="account-card"><button class="account-toggle" type="button" aria-expanded="false" aria-controls="groom-account"><span>🤵 신랑측</span><span class="account-chevron" aria-hidden="true">＋</span></button><div class="account-panel" id="groom-account" hidden>하나은행 · 김재혁<br><span class="account-number">254-910453-01107</span></div></div><div class="account-card"><button class="account-toggle" type="button" aria-expanded="false" aria-controls="bride-account"><span>👰 신부측</span><span class="account-chevron" aria-hidden="true">＋</span></button><div class="account-panel" id="bride-account" hidden>하나은행 · 홍진솔<br><span class="account-number">000-000000-00000</span></div></div></div>
     <div class="ending"><p class="e-msg">우리의 곁을 따뜻하게<br>지켜주신 모든 분들께<br>감사드립니다.</p><div class="e-div"><div class="e-line"></div><span style="font-size:12px">🤍</span><div class="e-line"></div></div><p class="e-names">김재혁 &amp; 홍진솔</p><div class="e-share">🔗 청첩장 링크 복사하기</div></div>
   </div>
 </div>
@@ -111,21 +111,27 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
   function loadNaverMap() {
     const mapElement = document.getElementById('naver-map');
     if (NAVER_MAP_CLIENT_ID === 'YOUR_NAVER_MAP_CLIENT_ID') return;
+    const showMapError = (message) => { mapElement.textContent = message; };
+    window.navermap_authFailure = () => {
+      showMapError('네이버 지도 인증에 실패했습니다.\n등록한 서비스 URL을 확인해 주세요.');
+    };
     const script = document.createElement('script');
     script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NAVER_MAP_CLIENT_ID}&submodules=geocoder`;
     script.onload = () => {
-      naver.maps.Service.geocode({ query: VENUE.address }, (status, response) => {
-        if (status !== naver.maps.Service.Status.OK || !response.v2.addresses.length) {
-          mapElement.textContent = '예식장 위치를 찾지 못했습니다.\n주소를 확인해 주세요.';
-          return;
-        }
-        const result = response.v2.addresses[0];
-        const position = new naver.maps.LatLng(result.y, result.x);
-        const map = new naver.maps.Map(mapElement, { center: position, zoom: 16, zoomControl: true, zoomControlOptions: { position: naver.maps.Position.TOP_RIGHT } });
-        new naver.maps.Marker({ position, map, title: VENUE.name });
-        document.getElementById('map-search-link').href = `https://map.naver.com/p/search/${encodeURIComponent(VENUE.name)}`;
-        document.getElementById('map-route-link').href = 'https://map.naver.com/p/directions/';
-      });
+      naver.maps.onJSContentLoaded = () => {
+        naver.maps.Service.geocode({ query: VENUE.address }, (status, response) => {
+          if (status !== naver.maps.Service.Status.OK || !response.v2.addresses.length) {
+            showMapError('예식장 위치를 찾지 못했습니다.\nGeocoding 서비스 신청 여부를 확인해 주세요.');
+            return;
+          }
+          const result = response.v2.addresses[0];
+          const position = new naver.maps.LatLng(result.y, result.x);
+          const map = new naver.maps.Map(mapElement, { center: position, zoom: 16, zoomControl: true, zoomControlOptions: { position: naver.maps.Position.TOP_RIGHT } });
+          new naver.maps.Marker({ position, map, title: VENUE.name });
+          document.getElementById('map-search-link').href = `https://map.naver.com/p/search/${encodeURIComponent(VENUE.name)}`;
+          document.getElementById('map-route-link').href = 'https://map.naver.com/p/directions/';
+        });
+      };
     };
     script.onerror = () => { mapElement.textContent = '지도를 불러오지 못했습니다.\nClient ID와 등록 도메인을 확인해 주세요.'; };
     document.head.appendChild(script);
@@ -137,6 +143,15 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
   galleryToggle.addEventListener('click', () => {
     const expanded = gallery.classList.toggle('is-expanded');
     galleryToggle.textContent = expanded ? '− 사진 접기' : '+ 사진 더보기';
+  });
+
+  document.querySelectorAll('.account-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      const willOpen = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(willOpen));
+      panel.hidden = !willOpen;
+    });
   });
 
   const galleryItems = [...gallery.querySelectorAll('.g-item')];
