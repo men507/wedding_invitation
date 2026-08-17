@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김재혁 · 홍진솔 결혼식에 초대합니다</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root{--ivory:#faf9f6;--paper:#fffefd;--warm:#f4f1eb;--line:#e7e1d7;--line-deep:#d8cfc1;--ink:#37332d;--muted:#837b70;--accent:#9b8b74}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#efede8;color:var(--ink);display:flex;justify-content:center;min-height:100vh;padding:28px 16px;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{width:min(100%,390px)}
+.label{font-size:10px;font-weight:500;letter-spacing:.16em;text-align:center;padding:0 0 12px;color:#8f877c}
+.phone{overflow:hidden;border:1px solid var(--line-deep);background:var(--paper);box-shadow:0 16px 42px rgba(66,55,42,.10)}
+
+.hero{padding:42px 24px 36px;text-align:center;background:linear-gradient(145deg,#fffefd 0%,#f7f4ee 100%);position:relative;border-bottom:1px solid var(--line)}
+.hero::before,.hero::after{content:'';position:absolute;left:50%;width:42px;height:1px;background:#cfc3b2;transform:translateX(-50%)}
+.hero::before{top:21px}.hero::after{bottom:18px}
+.h-date{font-size:10px;letter-spacing:.2em;color:var(--muted);margin-bottom:21px;font-weight:500;text-transform:uppercase}
+.h-photo{width:122px;height:153px;background:#f0ede7;border:1px solid #ddd5c9;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#b0a698;position:relative;overflow:hidden}
+.h-photo::after{content:'';position:absolute;inset:6px;border:1px solid rgba(170,157,139,.35);pointer-events:none}
+.h-photo img{width:100%;height:100%;object-fit:cover;object-position:center 50%}
+.h-names{font-size:21px;font-weight:300;letter-spacing:.12em;color:var(--ink);position:relative;left:.06em}
+.h-amp{color:#b7a994;margin:0 7px;font-family:Georgia,serif;font-style:italic;font-weight:400}
+.h-eng{font-size:10px;color:#958a7c;letter-spacing:.13em;margin-top:8px;font-family:Georgia,serif;font-style:italic}
+.h-deco{display:flex;align-items:center;gap:9px;margin:17px 38px 10px}.h-line{flex:1;height:1px;background:#d9d0c3}
+.h-tag{display:inline-block;padding:5px 12px;border:1px solid #ddd4c7;border-radius:20px;font-size:9px;color:#887c6d;letter-spacing:.08em;margin-top:5px}
+
+.sec{padding:30px 24px;background:var(--paper);border-bottom:1px solid var(--line)}
+.sec-dark{background:var(--ivory)}
+.s-label{font-size:10px;letter-spacing:.19em;color:var(--accent);text-align:center;margin-bottom:17px;font-weight:600;text-transform:uppercase}
+.s-text{font-size:13px;color:#514c44;text-align:center;line-height:2;color:var(--ink);letter-spacing:-.01em}
+
+.datebox{background:rgba(255,255,255,.65);border:1px solid var(--line);padding:20px 16px 18px;text-align:center;margin-top:5px}
+.datenum{font-size:30px;color:var(--ink);font-weight:300;letter-spacing:-.04em;line-height:1}.datesub{font-size:10px;color:var(--muted);letter-spacing:.16em;margin-top:8px}.d-div{height:1px;background:var(--line);margin:14px 4px 12px}.venue{font-size:12px;color:#5d564e}
+.dday-text{text-align:center;font-size:11px;color:#7e705d;letter-spacing:.08em;margin:19px 0 -2px}.cd-row{display:flex;justify-content:center;gap:12px;padding:21px 0 0}.cd-item{display:flex;flex-direction:column;align-items:center;gap:6px}.cd-num{width:39px;height:39px;border-radius:50%;background:#f5f1eb;color:#6e6253;font-size:12px;display:flex;align-items:center;justify-content:center;border:1px solid #dfd5c8}.cd-unit{font-size:8px;color:#9a9083;letter-spacing:.09em}
+
+.map-wrap{margin:0 0 20px;border:1px solid var(--line);background:#f5f2ed;overflow:hidden}.map-canvas{width:100%;height:190px;background:linear-gradient(135deg,#f4f0e9,#ebe5db);display:flex;align-items:center;justify-content:center;font-size:11px;color:#958a7d;text-align:center;line-height:1.7}.map-actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}.map-action{display:block;padding:11px 6px;background:#fffefd;color:#6f6353;text-align:center;text-decoration:none;font-size:10px;font-weight:500}.transport{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}.transport:first-of-type{padding-top:2px}.transport:last-child{border-bottom:none;padding-bottom:0}.t-icon{width:32px;height:32px;background:#f6f3ed;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}.t-type{font-size:9px;color:var(--accent);letter-spacing:.12em;margin-bottom:4px;font-weight:600;text-transform:uppercase}.t-desc{font-size:12px;color:#554f47;line-height:1.75}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.g-item{aspect-ratio:1;background:#ece8e1;border:0;padding:0;overflow:hidden;display:block;cursor:pointer}.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.g-item:hover img{transform:scale(1.04)}.gallery-extra{display:none}.gallery.is-expanded .gallery-extra{display:block}.g-btn{display:block;width:100%;margin-top:12px;padding:12px;background:transparent;border:1px solid #d8cfc2;color:#776c5e;text-align:center;font-family:inherit;font-size:11px;letter-spacing:.04em;cursor:pointer}
+.lightbox{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(26,23,20,.92);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;padding:22px}.lightbox.is-open{opacity:1;visibility:visible}.lightbox figure{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.lightbox-image{max-width:100%;max-height:calc(100dvh - 95px);object-fit:contain;box-shadow:0 14px 42px rgba(0,0,0,.3)}.lightbox-caption{color:rgba(255,255,255,.78);font-size:11px;letter-spacing:.08em}.lightbox button{position:absolute;border:0;background:transparent;color:#fff;font-family:Arial,sans-serif;cursor:pointer;z-index:1}.lightbox-close{top:14px;right:17px;font-size:33px;font-weight:200;line-height:1;padding:10px}.lightbox-nav{top:50%;transform:translateY(-50%);font-size:44px;font-weight:200;padding:16px 11px}.lightbox-prev{left:4px}.lightbox-next{right:4px}.is-lightbox-open{overflow:hidden}
+.acc-btn{padding:14px 15px;background:#f8f6f2;border:1px solid var(--line);display:flex;justify-content:space-between;font-size:12px;color:#49433b;margin-bottom:2px;font-weight:500}.acc-open{padding:13px 15px;background:#fffefd;border:1px solid var(--line);border-top:none;font-size:12px;color:#625b51;line-height:1.9;margin-bottom:9px}.acc-btn span:last-child{color:#a69885!important}
+
+.ending{background:#f4f1eb;padding:34px 24px 36px;text-align:center;position:relative}.ending::before{content:'';position:absolute;top:18px;left:50%;width:28px;height:1px;background:#cfc3b2;transform:translateX(-50%)}.e-msg{font-size:13px;color:#554f47;line-height:2;margin-bottom:19px}.e-div{display:flex;align-items:center;gap:9px;margin:0 42px 13px}.e-line{flex:1;height:1px;background:#d9d0c3}.e-names{font-size:14px;color:#756a5a;letter-spacing:.1em;font-family:Georgia,serif;font-style:italic;margin-bottom:20px}.e-share{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#706554;border:1px solid #d3c8b9;padding:10px 16px;border-radius:22px;background:rgba(255,255,255,.45)}
+@media(max-width:430px){body{padding:0;background:var(--paper)}.wrap{width:100%}.label{display:none}.phone{border:0;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="label">WHITE · IVORY EDITION</p>
+  <div class="phone">
+    <div class="hero">
+      <p class="h-date">2027 · January · 16</p>
+      <div class="h-photo"><img src="images/gallery-18.webp" alt="김재혁과 홍진솔의 웨딩 사진"></div>
+      <p class="h-names"><span>김재혁</span><span class="h-amp">&amp;</span><span>홍진솔</span></p>
+      <p class="h-eng">Jae hyuk &amp; Jin sol</p>
+      <div class="h-deco"><div class="h-line"></div><span style="font-size:10px;color:#b7a994">✦</span><div class="h-line"></div></div>
+      <div class="h-tag">✦ 2027 Winter Wedding ✦</div>
+    </div>
+    <div class="sec">
+      <p class="s-label">Invitation</p><p class="s-text">소중한 분들을 초대합니다.<br>오셔서 축복해 주시면<br>큰 기쁨이겠습니다.</p>
+      <div class="h-deco" style="margin:17px 38px 13px"><div class="h-line"></div><span style="font-size:9px;color:#b7a994">✦</span><div class="h-line"></div></div>
+      <p class="s-text" style="font-size:11px;color:#7c7368;line-height:1.9">김성우 · 이서진의 아들<br>홍경의 · 한명숙의 딸</p>
+    </div>
+    <div class="sec sec-dark"><p class="s-label">예식 안내</p><div class="datebox"><p class="datenum">01.16</p><p class="datesub">2027 · Saturday</p><div class="d-div"></div><p class="venue">오후 5시 · H스퀘어웨딩홀</p></div><p class="dday-text" id="dday-text" aria-live="polite">예식일까지 계산 중</p><div class="cd-row"><div class="cd-item"><div class="cd-num" id="days">--</div><div class="cd-unit">Days</div></div><div class="cd-item"><div class="cd-num" id="hours">--</div><div class="cd-unit">Hours</div></div><div class="cd-item"><div class="cd-num" id="minutes">--</div><div class="cd-unit">Min</div></div><div class="cd-item"><div class="cd-num" id="seconds">--</div><div class="cd-unit">Sec</div></div></div></div>
+    <div class="sec"><p class="s-label">Location</p><div class="map-wrap"><div id="naver-map" class="map-canvas">네이버지도를 준비하고 있습니다.<br>Client ID를 설정해 주세요.</div><div class="map-actions"><a class="map-action" id="map-search-link" href="https://map.naver.com/p/" target="_blank" rel="noopener">네이버지도에서 보기</a><a class="map-action" id="map-route-link" href="https://map.naver.com/p/directions/" target="_blank" rel="noopener">길찾기</a></div></div><div class="transport"><div class="t-icon">🚇</div><div><p class="t-type">지하철</p><p class="t-desc">2호선 한양대역 1번출구<br>5호선 왕십리역 6번출구</p></div></div><div class="transport"><div class="t-icon">🚗</div><div><p class="t-type">주차</p><p class="t-desc">동문회관 예식부 주차장<br>1시간 30분 무료</p></div></div></div>
+    <div class="sec sec-dark"><p class="s-label">Gallery</p><div class="gallery" id="gallery"><button class="g-item" type="button"><img src="images/gallery-04.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-05.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-07.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-10.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-12.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-18.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-19.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-20.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-17.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-01.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-02.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-03.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-06.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-08.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-09.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-11.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-13.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-14.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-15.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-16.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button></div><button class="g-btn" id="gallery-toggle" type="button">+ 사진 더보기</button></div>
+    <div class="sec"><p class="s-label">마음 전하실 곳</p><div class="acc-btn"><span>🤵 신랑측</span><span>▼</span></div><div class="acc-open">하나은행 · 김재혁<br><span style="color:#8a7b69">254-910453-01107</span></div><div class="acc-btn"><span>👰 신부측</span><span>▼</span></div></div>
+    <div class="ending"><p class="e-msg">우리의 곁을 따뜻하게<br>지켜주신 모든 분들께<br>감사드립니다.</p><div class="e-div"><div class="e-line"></div><span style="font-size:12px">🤍</span><div class="e-line"></div></div><p class="e-names">김재혁 &amp; 홍진솔</p><div class="e-share">🔗 청첩장 링크 복사하기</div></div>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="갤러리 사진 크게 보기" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" type="button" aria-label="사진 닫기">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="이전 사진">‹</button>
+  <figure><img class="lightbox-image" id="lightbox-image" src="" alt=""><figcaption class="lightbox-caption" id="lightbox-caption"></figcaption></figure>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="다음 사진">›</button>
+</div>
+<script>
+  // 예식 날짜와 시간: 필요하면 여기만 수정하세요. (한국 표준시)
+  const WEDDING_DATE = new Date('2027-01-16T17:00:00+09:00');
+
+  function updateCountdown() {
+    const remaining = WEDDING_DATE - new Date();
+    const elements = { days: document.getElementById('days'), hours: document.getElementById('hours'), minutes: document.getElementById('minutes'), seconds: document.getElementById('seconds') };
+    if (remaining <= 0) {
+      Object.values(elements).forEach((element) => { element.textContent = '00'; });
+      document.getElementById('dday-text').textContent = '오늘, 두 사람이 함께합니다';
+      return;
+    }
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    elements.days.textContent = String(days).padStart(2, '0');
+    elements.hours.textContent = String(hours).padStart(2, '0');
+    elements.minutes.textContent = String(minutes).padStart(2, '0');
+    elements.seconds.textContent = String(seconds).padStart(2, '0');
+    document.getElementById('dday-text').textContent = `예식까지 D-${days}`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // 네이버 클라우드 플랫폼에서 발급한 Maps Client ID로 바꾸세요.
+  const NAVER_MAP_CLIENT_ID = 'YOUR_NAVER_MAP_CLIENT_ID';
+  const VENUE = {
+    name: '한양대학교동문회관 H스퀘어웨딩홀',
+    address: '서울특별시 성동구 마조로 22-2'
+  };
+
+  function loadNaverMap() {
+    const mapElement = document.getElementById('naver-map');
+    if (NAVER_MAP_CLIENT_ID === 'YOUR_NAVER_MAP_CLIENT_ID') return;
+    const script = document.createElement('script');
+    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NAVER_MAP_CLIENT_ID}&submodules=geocoder`;
+    script.onload = () => {
+      naver.maps.Service.geocode({ query: VENUE.address }, (status, response) => {
+        if (status !== naver.maps.Service.Status.OK || !response.v2.addresses.length) {
+          mapElement.textContent = '예식장 위치를 찾지 못했습니다.\n주소를 확인해 주세요.';
+          return;
+        }
+        const result = response.v2.addresses[0];
+        const position = new naver.maps.LatLng(result.y, result.x);
+        const map = new naver.maps.Map(mapElement, { center: position, zoom: 16, zoomControl: true, zoomControlOptions: { position: naver.maps.Position.TOP_RIGHT } });
+        new naver.maps.Marker({ position, map, title: VENUE.name });
+        document.getElementById('map-search-link').href = `https://map.naver.com/p/search/${encodeURIComponent(VENUE.name)}`;
+        document.getElementById('map-route-link').href = 'https://map.naver.com/p/directions/';
+      });
+    };
+    script.onerror = () => { mapElement.textContent = '지도를 불러오지 못했습니다.\nClient ID와 등록 도메인을 확인해 주세요.'; };
+    document.head.appendChild(script);
+  }
+  loadNaverMap();
+
+  const gallery = document.getElementById('gallery');
+  const galleryToggle = document.getElementById('gallery-toggle');
+  galleryToggle.addEventListener('click', () => {
+    const expanded = gallery.classList.toggle('is-expanded');
+    galleryToggle.textContent = expanded ? '− 사진 접기' : '+ 사진 더보기';
+  });
+
+  const galleryItems = [...gallery.querySelectorAll('.g-item')];
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  let activeImageIndex = 0;
+  let touchStartX = 0;
+
+  function showLightboxImage(index) {
+    activeImageIndex = (index + galleryItems.length) % galleryItems.length;
+    const image = galleryItems[activeImageIndex].querySelector('img');
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightboxCaption.textContent = `${activeImageIndex + 1} / ${galleryItems.length}`;
+  }
+  function openLightbox(index) {
+    showLightboxImage(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('is-lightbox-open');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('is-lightbox-open');
+  }
+  galleryItems.forEach((item, index) => item.addEventListener('click', () => openLightbox(index)));
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => showLightboxImage(activeImageIndex - 1));
+  document.getElementById('lightbox-next').addEventListener('click', () => showLightboxImage(activeImageIndex + 1));
+  lightbox.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+  lightbox.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].screenX; }, { passive: true });
+  lightbox.addEventListener('touchend', (event) => {
+    const distance = event.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(distance) > 45) showLightboxImage(activeImageIndex + (distance < 0 ? 1 : -1));
+  }, { passive: true });
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showLightboxImage(activeImageIndex - 1);
+    if (event.key === 'ArrowRight') showLightboxImage(activeImageIndex + 1);
+  });
+</script>
+</body>
+</html>
