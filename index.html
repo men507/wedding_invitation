@@ -368,5 +368,78 @@ window.addEventListener('load', function() {
   draw();
 });
 </script>
+<!-- ══ 배경음악 ══ -->
+<!-- ✏️ music.mp3 파일을 HTML과 같은 폴더에 넣으세요 -->
+<audio id="bg-music" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-btn" type="button" onclick="toggleMusic()" aria-label="배경음악 재생/정지">
+  <svg id="music-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/>
+  </svg>
+  <svg id="music-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+    <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7M19 5a9 9 0 010 14"/>
+  </svg>
+</button>
+
+<style>
+#music-btn{
+  position:fixed;bottom:22px;right:18px;z-index:100000;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(42,58,106,.92);border:1px solid rgba(200,216,236,.45);
+  color:#e4ecf6;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 14px rgba(26,34,64,.28);
+  transition:background .2s ease,transform .15s ease;
+}
+#music-btn:hover{background:rgba(26,34,64,.96)}
+#music-btn:active{transform:scale(.94)}
+#music-btn svg{width:19px;height:19px}
+#music-btn.playing{background:rgba(58,90,138,.94)}
+@media(max-width:430px){#music-btn{bottom:16px;right:14px;width:42px;height:42px}}
+</style>
+
+<script>
+// ══ 배경음악 ══
+(function(){
+  const music   = document.getElementById('bg-music');
+  const btn     = document.getElementById('music-btn');
+  const iconOff = document.getElementById('music-icon-off');
+  const iconOn  = document.getElementById('music-icon-on');
+  let playing = false;
+
+  music.volume = 0.4; // ✏️ 볼륨 (0.0 ~ 1.0)
+
+  function setIcon(on){
+    iconOn.style.display  = on ? 'block' : 'none';
+    iconOff.style.display = on ? 'none'  : 'block';
+    btn.classList.toggle('playing', on);
+  }
+
+  window.toggleMusic = function(){
+    if (playing) {
+      music.pause();
+      playing = false;
+      setIcon(false);
+    } else {
+      music.play().then(()=>{ playing = true; setIcon(true); })
+                  .catch(()=>{ /* 파일 없거나 재생 불가 */ });
+    }
+  };
+
+  // 첫 화면 터치/클릭 시 자동 재생 시도 (모바일 정책 대응)
+  function startOnce(){
+    if (!playing) {
+      music.play().then(()=>{ playing = true; setIcon(true); }).catch(()=>{});
+    }
+    document.removeEventListener('click', startOnce);
+    document.removeEventListener('touchstart', startOnce);
+  }
+  document.addEventListener('click', startOnce, { once:true });
+  document.addEventListener('touchstart', startOnce, { once:true });
+})();
+</script>
+
 </body>
 </html>
