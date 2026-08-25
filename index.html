@@ -2,14 +2,15 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>김재혁 · 홍진솔 결혼식에 초대합니다</title>
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
 
 :root{--ivory:#faf9f6;--paper:#fffefd;--warm:#f4f1eb;--line:#e7e1d7;--line-deep:#d8cfc1;--ink:#37332d;--muted:#837b70;--accent:#9b8b74}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#efede8;color:var(--ink);display:flex;justify-content:center;min-height:100vh;padding:28px 16px;font-weight:400;-webkit-font-smoothing:antialiased}
+body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#efede8;color:var(--ink);display:flex;justify-content:center;min-height:100vh;padding:28px 16px;font-weight:400;-webkit-font-smoothing:antialiased;position:relative}
 .wrap{width:min(100%,390px)}
 .label{font-size:10px;font-weight:500;letter-spacing:.16em;text-align:center;padding:0 0 12px;color:#8f877c}
 .phone{overflow:hidden;border:1px solid var(--line-deep);background:var(--paper);box-shadow:0 16px 42px rgba(66,55,42,.10)}
@@ -37,13 +38,65 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
 .dday-text{text-align:center;font-size:11px;color:#7e705d;letter-spacing:.08em;margin:19px 0 -2px}.cd-row{display:flex;justify-content:center;gap:12px;padding:21px 0 0}.cd-item{display:flex;flex-direction:column;align-items:center;gap:6px}.cd-num{width:39px;height:39px;border-radius:50%;background:#f5f1eb;color:#6e6253;font-size:12px;display:flex;align-items:center;justify-content:center;border:1px solid #dfd5c8}.cd-unit{font-size:8px;color:#9a9083;letter-spacing:.09em}
 
 .map-wrap{margin:0 0 20px;border:1px solid var(--line);background:#f5f2ed;overflow:hidden}.map-canvas{width:100%;height:280px;min-height:280px;background:linear-gradient(135deg,#f4f0e9,#ebe5db);display:block;position:relative;font-size:11px;color:#958a7d;text-align:center;line-height:1.7}.map-actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}.map-action{display:block;padding:11px 6px;background:#fffefd;color:#6f6353;text-align:center;text-decoration:none;font-size:10px;font-weight:500}.transport{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}.transport:first-of-type{padding-top:2px}.transport:last-child{border-bottom:none;padding-bottom:0}.t-icon{width:32px;height:32px;background:#f6f3ed;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}.t-type{font-size:9px;color:var(--accent);letter-spacing:.12em;margin-bottom:4px;font-weight:600;text-transform:uppercase}.t-desc{font-size:12px;color:#554f47;line-height:1.75}
-.bus-card{padding:21px 18px;background:#f8f5ef;border:1px solid var(--line);text-align:center}.bus-title{font-size:14px;font-weight:500;color:#514b42;margin-bottom:8px}.bus-text{font-size:11px;color:#766e63;line-height:1.85;margin-bottom:15px}.bus-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;background:#756959;color:#fffefd;text-decoration:none;font-size:11px;letter-spacing:.03em;transition:background .2s ease}.bus-button:hover{background:#625748}.bus-note{font-size:9px;color:#9a9083;margin-top:10px;line-height:1.6}
+.bus-card{padding:21px 18px;background:#f8f5ef;border:1px solid var(--line);text-align:center}.bus-title{font-size:14px;font-weight:500;color:#514b42;margin-bottom:8px}.bus-text{font-size:11px;color:#766e63;line-height:1.85;margin-bottom:15px}.bus-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;background:#756959;color:#fffefd;text-decoration:none;font-size:12px;letter-spacing:.05em;transition:background .2s ease}.bus-button:hover{background:#625748}.bus-note{font-size:10px;color:#8796ae;margin-top:11px;line-height:1.7;text-align:center}
 
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.g-item{aspect-ratio:1;background:#ece8e1;border:0;padding:0;overflow:hidden;display:block;cursor:default}.g-item img{width:100%;height:100%;object-fit:cover;display:block}.gallery-extra{display:none}.gallery.is-expanded .gallery-extra{display:block}.g-btn{display:block;width:100%;margin-top:12px;padding:12px;background:transparent;border:1px solid #d8cfc2;color:#776c5e;text-align:center;font-family:inherit;font-size:11px;letter-spacing:.04em;cursor:pointer}
+/* 전세버스 상세 안내 */
+.bus-heading{font-size:17px;font-weight:600;color:#2a3a50;text-align:center;margin-bottom:18px;letter-spacing:.02em}
+.bus-intro{font-size:12px;color:#596a84;text-align:center;line-height:2.1;margin-bottom:20px;word-break:keep-all}
+.bus-info-box{background:#f7f9fc;border:1px solid #c8d0dc;padding:20px;margin-bottom:14px}
+.bus-info-row{margin-bottom:16px}.bus-info-row:last-child{margin-bottom:0}
+.bus-info-title{font-size:12px;font-weight:600;color:#3a5a8a;margin-bottom:5px;letter-spacing:.02em}
+.bus-info-content{font-size:12px;color:#2a3a50;line-height:1.8}
+.bus-notice{background:#fff5f5;border:1px solid #ffd8d8;padding:14px 16px;margin-bottom:16px}
+.bus-notice p{font-size:11px;color:#b05050;line-height:1.95;word-break:keep-all}
+.bus-notice p::before{content:'* '}
+
+/* 마음 전하실 곳 안내문 */
+.account-intro{background:#f2f7fc;border:1px solid #d0e0ee;padding:20px 18px;margin-bottom:16px;font-size:12px;color:#4a6080;text-align:center;line-height:2.1;word-break:keep-all}
+
+/* 계좌 상세 카드 */
+.account-panel{padding:0 !important}
+.acc-row{display:flex;justify-content:space-between;align-items:center;padding:15px 16px;border-bottom:1px solid #e2e8f0}
+.acc-row:last-child{border-bottom:none}
+.acc-info{flex:1;min-width:0}
+.acc-role{font-size:10px;color:#8fa0bc;letter-spacing:.04em;margin-bottom:4px;font-weight:500}
+.acc-bank{font-size:13px;color:#1a2240;font-weight:500;line-height:1.5}
+.acc-num{font-size:12px;color:#6a7fa0;margin-top:3px;letter-spacing:.02em}
+.acc-copy{font-size:11px;color:#3a5a8a;border:1px solid #c8d0dc;background:#fff;padding:7px 13px;cursor:pointer;font:inherit;font-size:11px;white-space:nowrap;flex-shrink:0;margin-left:10px;transition:all .2s ease}
+.acc-copy:hover{background:#3a5a8a;color:#fff;border-color:#3a5a8a}
+.acc-copy.copied{background:#3a5a8a;color:#fff;border-color:#3a5a8a}
+
+/* 버스 정보 아이콘 */
+.bus-info-title{display:flex;align-items:center;gap:7px}
+.bus-ico{width:22px;height:22px;background:#e4eef8;border:1px solid #c8d8ea;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.bus-ico svg{width:12px;height:12px;color:#4a7ab0}
+
+/* 교통 아이콘 SVG */
+.t-icon svg{width:16px;height:16px;color:#4a7ab0}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.g-item{aspect-ratio:1;background:#ece8e1;border:0;padding:0;overflow:hidden;display:block;cursor:pointer}.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.g-item:hover img{transform:scale(1.04)}.gallery-extra{display:none}.gallery.is-expanded .gallery-extra{display:block}.g-btn{display:block;width:100%;margin-top:12px;padding:12px;background:transparent;border:1px solid #d8cfc2;color:#776c5e;text-align:center;font-family:inherit;font-size:11px;letter-spacing:.04em;cursor:pointer}
+.lightbox{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(26,23,20,.92);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;padding:22px;touch-action:none}.lightbox.is-open{opacity:1;visibility:visible}.lightbox figure{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.lightbox-image{max-width:100%;max-height:calc(100dvh - 95px);object-fit:contain;box-shadow:0 14px 42px rgba(0,0,0,.3);-webkit-user-drag:none;user-select:none}.lightbox-caption{color:rgba(255,255,255,.78);font-size:11px;letter-spacing:.08em}.lightbox button{position:absolute;border:0;background:transparent;color:#fff;font-family:Arial,sans-serif;cursor:pointer;z-index:1}.lightbox-close{top:14px;right:17px;font-size:33px;font-weight:200;line-height:1;padding:10px}.lightbox-nav{top:50%;transform:translateY(-50%);font-size:44px;font-weight:200;padding:16px 11px}.lightbox-prev{left:4px}.lightbox-next{right:4px}.is-lightbox-open{overflow:hidden}
 .account-card{margin-bottom:8px}.account-toggle{width:100%;padding:14px 15px;background:#f8f6f2;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font:inherit;font-size:12px;color:#49433b;cursor:pointer;font-weight:500}.account-toggle:focus-visible{outline:2px solid #b9aa94;outline-offset:2px}.account-chevron{color:#a69885;font-size:16px;font-weight:300;line-height:1;transition:transform .2s ease}.account-toggle[aria-expanded="true"] .account-chevron{transform:rotate(45deg)}.account-panel{padding:13px 15px;background:#fffefd;border:1px solid var(--line);border-top:none;font-size:12px;color:#625b51;line-height:1.9}.account-panel[hidden]{display:none}.account-number{color:#8a7b69;letter-spacing:.03em}
 
 .ending{background:#f4f1eb;padding:34px 24px 36px;text-align:center;position:relative}.ending::before{content:'';position:absolute;top:18px;left:50%;width:28px;height:1px;background:#cfc3b2;transform:translateX(-50%)}.e-msg{font-size:13px;color:#554f47;line-height:2;margin-bottom:19px}.e-div{display:flex;align-items:center;gap:9px;margin:0 42px 13px}.e-line{flex:1;height:1px;background:#d9d0c3}.e-names{font-size:14px;color:#756a5a;letter-spacing:.1em;font-family:Georgia,serif;font-style:italic;margin-bottom:20px}.e-share{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#706554;border:1px solid #d3c8b9;padding:10px 16px;border-radius:22px;background:rgba(255,255,255,.45)}
 @media(max-width:430px){body{padding:0;background:var(--paper)}.wrap{width:100%}.label{display:none}.phone{border:0;box-shadow:none}}
+
+/* Warm typography edition: graceful serif for invitation copy, crisp sans-serif for controls. */
+body{font-family:'Gowun Batang','Noto Serif KR','Apple Myungjo',serif}
+.h-names{font-size:23px;font-weight:400}
+.s-label,.g-btn,.account-toggle,.map-action,.bus-button{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+
+/* Original night-sky edition: recreated from the first D-style preview. */
+:root{--ivory:#edf0f5;--paper:#f4f5f8;--warm:#edf0f5;--line:#dde2ea;--line-deep:#c8d0dc;--ink:#2a3a50;--muted:#6a7fa0;--accent:#6a7fa0}
+body{background:#ffffff}.label{color:#666}.phone{border-color:#2a3a5a;box-shadow:0 16px 42px rgba(42,58,90,.13)}
+.hero{background:linear-gradient(180deg,#1a2240 0%,#2a3a6a 35%,#6a7fa0 70%,#a8b8cc 100%);overflow:hidden}.hero::before{content:'✦ ✧ ✦ · ✧ · ✦ · ✧ ✦ · ✧ ✦';top:9px;width:100%;height:auto;background:transparent;color:rgba(255,255,255,.35);font-size:7px;letter-spacing:6px;text-align:center}.hero::after{content:'· ✦ · ✧ · ✦ ✧ · ✦ · ✧ · ✦ ·';top:22px;bottom:auto;width:100%;height:auto;background:transparent;color:rgba(255,255,255,.20);font-size:6px;letter-spacing:8px;text-align:center}.h-date{color:rgba(200,210,228,.8);position:relative;z-index:1}.h-photo,.h-names,.h-eng,.h-deco,.h-tag{z-index:1}.h-photo{background:rgba(255,255,255,.08);border-color:rgba(200,210,228,.4)}.h-photo::after{border-color:rgba(255,255,255,.15)}.h-names{color:#f0f2f8}.h-amp{color:rgba(180,200,230,.8)}.h-eng{color:rgba(180,200,228,.65)}.h-line{background:rgba(180,200,228,.3)}.h-tag{background:rgba(255,255,255,.08);border-color:rgba(180,200,228,.3);color:rgba(200,215,235,.75)}
+.sec{background:#ffffff;border-color:#dde2ea}.sec-dark{background:#fafbfc}.s-label{color:#6a7fa0}.s-text{color:#2a3a50}.datebox{background:#fff;border-color:#c8d0dc}.datenum{color:#1a2240}.datesub{color:#6a7fa0}.d-div{background:#c8d0dc}.venue{color:#3a4a6a}.dday-text{color:#6a7fa0}.cd-num{background:linear-gradient(160deg,#1a2240,#2a3a6a);border-color:rgba(100,140,180,.3);color:#c8d4e8}.cd-unit{color:#7a8ba7}
+.map-wrap{background:#edf0f5;border-color:#c8d0dc}.map-actions{background:#c8d0dc}.map-action{background:#fff;color:#53698f}.transport{border-color:#dde2ea}.t-icon{background:#edf0f5;border-color:#c8d0dc}.t-type{color:#6a7fa0}.t-desc{color:#2a3a50}
+.bus-card{background:#f7f8fb;border-color:#c8d0dc}.bus-title{color:#1a2240}.bus-text{color:#596a84}.bus-button{background:#2a3a6a;color:#eef2f8}.bus-button:hover{background:#1a2240}.bus-note{color:#8796ae}
+.gallery{gap:2px}.g-item{background:#dde2ea}.g-btn{background:#edf0f5;border-color:#c8d0dc;color:#6a7fa0}.lightbox{background:rgba(20,29,55,.94)}
+.account-toggle{background:#edf0f5;border-color:#c8d0dc;color:#1a2240}.account-panel{background:#fff;border-color:#c8d0dc;color:#3a4a6a}.account-number{color:#6a7fa0}.account-chevron{color:#8fa0bc}
+.ending{background:linear-gradient(180deg,#243060 0%,#1a2240 100%);overflow:hidden}.ending::before{content:'✦ · ✧ · ✦ · ✧ · ✦ · ✧ · ✦';top:8px;width:100%;height:auto;background:transparent;color:rgba(255,255,255,.15);font-size:7px;letter-spacing:6px;text-align:center}.e-msg{color:rgba(200,210,232,.85)}.e-line{background:rgba(160,180,210,.3)}.e-names{color:#aebbd0}.e-share{color:rgba(190,203,226,.78);border-color:rgba(160,180,210,.3);background:transparent}
+.hero [style*="color:#b7a994"]{color:rgba(200,218,240,.6) !important}.sec [style*="color:#b7a994"]{color:#a8b4c8 !important}.sec [style*="color:#7c7368"]{color:#6a7fa0 !important}
 </style>
 </head>
 <body>
@@ -60,15 +113,53 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
     <div class="sec">
       <p class="s-label">Invitation</p><p class="s-text">소중한 분들을 초대합니다.<br>오셔서 축복해 주시면<br>큰 기쁨이겠습니다.</p>
       <div class="h-deco" style="margin:17px 38px 13px"><div class="h-line"></div><span style="font-size:9px;color:#b7a994">✦</span><div class="h-line"></div></div>
-      <p class="s-text" style="font-size:11px;color:#7c7368;line-height:1.9">김성우 · 이서진의 아들<br>홍경의 · 한명숙의 딸</p>
+      <p class="s-text" style="font-size:12px;color:#7c7368;line-height:2.1"><strong style="color:#2a3a50;font-weight:600">김성우</strong> · <strong style="color:#2a3a50;font-weight:600">이서진</strong>의 아들 <strong style="color:#2a3a50;font-weight:600">재혁</strong><br><strong style="color:#2a3a50;font-weight:600">홍경의</strong> · <strong style="color:#2a3a50;font-weight:600">한명숙</strong>의 딸 <strong style="color:#2a3a50;font-weight:600">진솔</strong></p>
     </div>
     <div class="sec sec-dark"><p class="s-label">예식 안내</p><div class="datebox"><p class="datenum">01.16</p><p class="datesub">2027 · Saturday</p><div class="d-div"></div><p class="venue">오후 5시 · H스퀘어웨딩홀</p></div><p class="dday-text" id="dday-text" aria-live="polite">예식일까지 계산 중</p><div class="cd-row"><div class="cd-item"><div class="cd-num" id="days">--</div><div class="cd-unit">Days</div></div><div class="cd-item"><div class="cd-num" id="hours">--</div><div class="cd-unit">Hours</div></div><div class="cd-item"><div class="cd-num" id="minutes">--</div><div class="cd-unit">Min</div></div><div class="cd-item"><div class="cd-num" id="seconds">--</div><div class="cd-unit">Sec</div></div></div></div>
-    <div class="sec"><p class="s-label">Location</p><div class="map-wrap"><div id="naver-map" class="map-canvas">네이버지도를 준비하고 있습니다.<br>Client ID를 설정해 주세요.</div><div class="map-actions"><a class="map-action" id="map-search-link" href="https://map.naver.com/p/" target="_blank" rel="noopener">네이버지도에서 보기</a><a class="map-action" id="map-route-link" href="https://map.naver.com/p/directions/" target="_blank" rel="noopener">길찾기</a></div></div><div class="transport"><div class="t-icon">🚇</div><div><p class="t-type">지하철</p><p class="t-desc">2호선 한양대역 1번출구<br>5호선 왕십리역 6번출구</p></div></div><div class="transport"><div class="t-icon">🚗</div><div><p class="t-type">주차</p><p class="t-desc">동문회관 예식부 주차장<br>1시간 30분 무료</p></div></div></div>
-    <div class="sec sec-dark"><p class="s-label">Shuttle Bus</p><div class="bus-card"><p class="bus-title">버스 대절 참석 여부</p><p class="bus-text">원활한 버스 대절을 위해<br>참석 여부와 연락처를 남겨주세요.</p><a class="bus-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfQ-1TdxPRjs_bE9_0aQttVf5BGDQO7o_KxtbuMjIEZQJP7bw/viewform" target="_blank" rel="noopener">버스 대절 참석 여부 작성하기</a><p class="bus-note">작성 내용은 버스 대절 안내 및 탑승 인원 확인에만 사용됩니다.</p></div></div>
+    <div class="sec"><p class="s-label">Location</p><div class="map-wrap"><div id="naver-map" class="map-canvas">네이버지도를 준비하고 있습니다.<br>Client ID를 설정해 주세요.</div><div class="map-actions"><a class="map-action" id="map-search-link" href="https://map.naver.com/p/" target="_blank" rel="noopener">네이버지도에서 보기</a><a class="map-action" id="map-route-link" href="https://map.naver.com/p/directions/" target="_blank" rel="noopener">길찾기</a></div></div><div class="transport"><div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M8 17l-2 4M16 17l2 4M9 17h6M8 7h8"/><circle cx="8.5" cy="12" r="1"/><circle cx="15.5" cy="12" r="1"/></svg></div><div><p class="t-type">지하철</p><p class="t-desc">2호선 한양대역 1번출구<br>5호선 왕십리역 6번출구</p></div></div><div class="transport"><div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-6l2-5h14l2 5v6h-2M5 11h14"/><path d="M5 17a2 2 0 104 0M15 17a2 2 0 104 0"/></svg></div><div><p class="t-type">주차</p><p class="t-desc">동문회관 예식부 주차장<br>1시간 30분 무료</p></div></div></div>
+    <div class="sec sec-dark">
+      <p class="s-label">Information</p>
+      <p class="bus-heading">전세버스 안내 (대전 ↔ 서울)</p>
+      <p class="bus-intro">멀리서 축하의 마음으로 귀한 걸음 해주시는<br>하객 여러분들을 귀하게 모실 수 있도록<br>전세 버스를 준비하였습니다.<br><br>버스를 이용하시는 하객 분들께서는<br>탑승 여부를 입력하여 주시면 감사하겠습니다.</p>
+      <div class="bus-info-box">
+        <div class="bus-info-row"><p class="bus-info-title"><span class="bus-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>출발일시</p><p class="bus-info-content">2027년 01월 16일 토요일<br>오후 13:15 출발</p></div>
+        <div class="bus-info-row"><p class="bus-info-title"><span class="bus-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.7 2 6 4.7 6 8c0 4.5 6 13 6 13s6-8.5 6-13c0-3.3-2.7-6-6-6z"/><circle cx="12" cy="8" r="2.2"/></svg></span>탑승장소</p><p class="bus-info-content">혜천교회 앞 (수정필요)</p></div>
+        <div class="bus-info-row"><p class="bus-info-title"><span class="bus-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg></span>복귀일시</p><p class="bus-info-content">예식 종료 후 ~시 출발 예정</p></div>
+        <div class="bus-info-row"><p class="bus-info-title"><span class="bus-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></span>연락처</p><p class="bus-info-content">010-5556-7453 (버스 운전기사님)</p></div>
+      </div>
+      <div class="bus-notice">
+        <p>출발 10분 전 도착 부탁드립니다.</p>
+        <p>정시 출발 예정으로 늦을 시 탑승이 불가할 수 있습니다.</p>
+        <p>복귀 시간은 현장 사정에 따라 조정될 수 있습니다.</p>
+      </div>
+      <a class="bus-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfQ-1TdxPRjs_bE9_0aQttVf5BGDQO7o_KxtbuMjIEZQJP7bw/viewform" target="_blank" rel="noopener">버스 탑승 여부 입력</a>
+      <p class="bus-note">작성 내용은 버스 대절 안내 및 탑승 인원 확인에만 사용됩니다.</p>
+    </div>
     <div class="sec sec-dark"><p class="s-label">Gallery</p><div class="gallery" id="gallery"><button class="g-item" type="button"><img src="images/gallery-04.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-05.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-07.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-10.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-12.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-18.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-19.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-20.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item" type="button"><img src="images/gallery-17.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-01.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-02.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-03.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-06.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-08.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-09.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-11.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-13.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-14.webp" alt="신랑 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-15.webp" alt="신부 웨딩 사진" loading="lazy"></button><button class="g-item gallery-extra" type="button"><img src="images/gallery-16.webp" alt="김재혁과 홍진솔의 웨딩 사진" loading="lazy"></button></div><button class="g-btn" id="gallery-toggle" type="button">+ 사진 더보기</button></div>
-    <div class="sec"><p class="s-label">마음 전하실 곳</p><div class="account-card"><button class="account-toggle" type="button" aria-expanded="false" aria-controls="groom-account"><span>🤵 신랑측</span><span class="account-chevron" aria-hidden="true">＋</span></button><div class="account-panel" id="groom-account" hidden>하나은행 · 김재혁<br><span class="account-number">254-910453-01107</span></div></div><div class="account-card"><button class="account-toggle" type="button" aria-expanded="false" aria-controls="bride-account"><span>👰 신부측</span><span class="account-chevron" aria-hidden="true">＋</span></button><div class="account-panel" id="bride-account" hidden>하나은행 · 홍진솔<br><span class="account-number">000-000000-00000</span></div></div></div>
+    <div class="sec"><p class="s-label">마음 전하실 곳</p><div class="account-intro">멀리서도 축하의 마음을<br>전하고자 하시는 분들을 위해<br>계좌번호를 기재하였습니다.<br><br>너그러운 마음으로 양해 부탁드리며<br>따뜻한 마음을 담은 소중한 축하에<br>깊이 감사드립니다.</div>
+      <div class="account-card"><button class="account-toggle" type="button" aria-expanded="false" aria-controls="groom-account"><span>🤵 신랑측</span><span class="account-chevron" aria-hidden="true">＋</span></button>
+        <div class="account-panel" id="groom-account" hidden>
+          <div class="acc-row"><div class="acc-info"><p class="acc-role">신랑측 혼주</p><p class="acc-bank">SC은행 · 김성우</p><p class="acc-num">154-20-267958</p></div><button class="acc-copy" type="button" onclick="copyAcc(this,'154-20-267958')">복사</button></div>
+          <div class="acc-row"><div class="acc-info"><p class="acc-role">신랑측 혼주</p><p class="acc-bank">농축협 · 이서진</p><p class="acc-num">110-234-567890</p></div><button class="acc-copy" type="button" onclick="copyAcc(this,'110-234-567890')">복사</button></div>
+          <div class="acc-row"><div class="acc-info"><p class="acc-role">신랑</p><p class="acc-bank">하나은행 · 김재혁</p><p class="acc-num">254-910453-01107</p></div><button class="acc-copy" type="button" onclick="copyAcc(this,'254-910453-01107')">복사</button></div>
+        </div>
+      </div>
+      <div class="account-card"><button class="account-toggle" type="button" aria-expanded="false" aria-controls="bride-account"><span>👰 신부측</span><span class="account-chevron" aria-hidden="true">＋</span></button>
+        <div class="account-panel" id="bride-account" hidden>
+          <div class="acc-row"><div class="acc-info"><p class="acc-role">신부측 혼주</p><p class="acc-bank">농협 · 홍경의</p><p class="acc-num">453091-56-048285</p></div><button class="acc-copy" type="button" onclick="copyAcc(this,'453091-56-048285')">복사</button></div>
+          <div class="acc-row"><div class="acc-info"><p class="acc-role">신부측 혼주</p><p class="acc-bank">농협 · 한명숙</p><p class="acc-num">453093-56-034701</p></div><button class="acc-copy" type="button" onclick="copyAcc(this,'453093-56-034701')">복사</button></div>
+          <div class="acc-row"><div class="acc-info"><p class="acc-role">신부</p><p class="acc-bank">하나은행 · 홍진솔</p><p class="acc-num">660-911236-41307</p></div><button class="acc-copy" type="button" onclick="copyAcc(this,'660-911236-41307')">복사</button></div>
+        </div>
+      </div>
+    </div>
     <div class="ending"><p class="e-msg">우리의 곁을 따뜻하게<br>지켜주신 모든 분들께<br>감사드립니다.</p><div class="e-div"><div class="e-line"></div><span style="font-size:12px">🤍</span><div class="e-line"></div></div><p class="e-names">김재혁 &amp; 홍진솔</p><div class="e-share">🔗 청첩장 링크 복사하기</div></div>
   </div>
+</div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="갤러리 사진 크게 보기" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" type="button" aria-label="사진 닫기">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="이전 사진">‹</button>
+  <figure><img class="lightbox-image" id="lightbox-image" src="" alt=""><figcaption class="lightbox-caption" id="lightbox-caption"></figcaption></figure>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="다음 사진">›</button>
 </div>
 <script>
   // 예식 날짜와 시간: 필요하면 여기만 수정하세요. (한국 표준시)
@@ -153,6 +244,129 @@ body{font-family:Pretendard,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;back
     });
   });
 
+  const galleryItems = [...gallery.querySelectorAll('.g-item')];
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  let activeImageIndex = 0;
+  let touchStartX = 0;
+
+  function showLightboxImage(index) {
+    activeImageIndex = (index + galleryItems.length) % galleryItems.length;
+    const image = galleryItems[activeImageIndex].querySelector('img');
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightboxCaption.textContent = `${activeImageIndex + 1} / ${galleryItems.length}`;
+  }
+  function openLightbox(index) {
+    showLightboxImage(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('is-lightbox-open');
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('is-lightbox-open');
+  }
+  galleryItems.forEach((item, index) => item.addEventListener('click', () => openLightbox(index)));
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => showLightboxImage(activeImageIndex - 1));
+  document.getElementById('lightbox-next').addEventListener('click', () => showLightboxImage(activeImageIndex + 1));
+  lightbox.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+  lightbox.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].screenX; }, { passive: true });
+  lightbox.addEventListener('touchend', (event) => {
+    const distance = event.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(distance) > 45) showLightboxImage(activeImageIndex + (distance < 0 ? 1 : -1));
+  }, { passive: true });
+  lightbox.addEventListener('touchmove', (event) => {
+    if (event.touches.length > 1) event.preventDefault();
+  }, { passive: false });
+  lightbox.addEventListener('gesturestart', (event) => event.preventDefault());
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showLightboxImage(activeImageIndex - 1);
+    if (event.key === 'ArrowRight') showLightboxImage(activeImageIndex + 1);
+  });
+</script>
+
+<!-- 눈 캔버스 -->
+<canvas id="snow-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;display:block"></canvas>
+
+<script>
+// ══ 계좌번호 복사 ══
+function copyAcc(btn, num) {
+  navigator.clipboard.writeText(num).then(() => {
+    btn.textContent = '복사됨';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const el = document.createElement('textarea');
+    el.value = num; document.body.appendChild(el); el.select();
+    document.execCommand('copy'); document.body.removeChild(el);
+    btn.textContent = '복사됨';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ══ 눈 내리는 효과 ══
+window.addEventListener('load', function() {
+  const canvas = document.getElementById('snow-canvas');
+  const ctx    = canvas.getContext('2d');
+  let flakes   = [];
+  const NUM    = 100;
+
+  function resize() {
+    canvas.width  = document.body.scrollWidth  || window.innerWidth;
+    canvas.height = document.body.scrollHeight || window.innerHeight;
+  }
+
+  // 폰트·이미지 로드 완료 후 크기 재측정
+  resize();
+  setTimeout(resize, 500);
+  window.addEventListener('resize', resize);
+
+  function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+  function initFlakes() {
+    flakes = [];
+    for (let i = 0; i < NUM; i++) {
+      flakes.push({
+        x:     randBetween(0, canvas.width),
+        y:     randBetween(-canvas.height, canvas.height),
+        r:     randBetween(2, 5),
+        speed: randBetween(0.8, 2.5),
+        drift: randBetween(-0.4, 0.4),
+        alpha: randBetween(0.5, 1.0)
+      });
+    }
+  }
+  initFlakes();
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    flakes.forEach(f => {
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${f.alpha})`;
+      ctx.fill();
+
+      f.y += f.speed;
+      f.x += f.drift;
+
+      if (f.y > canvas.height + 10) {
+        f.y = -10;
+        f.x = randBetween(0, canvas.width);
+      }
+      if (f.x < 0)             f.x = canvas.width;
+      if (f.x > canvas.width)  f.x = 0;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
 </script>
 </body>
 </html>
