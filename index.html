@@ -117,7 +117,7 @@ body{background:#ffffff}.label{color:#666}.phone{border-color:#2a3a5a;box-shadow
       <p class="s-text" style="font-size:12px;color:#7c7368;line-height:2.1"><strong style="color:#2a3a50;font-weight:600">김성우</strong> · <strong style="color:#2a3a50;font-weight:600">이서진</strong>의 아들 <strong style="color:#2a3a50;font-weight:600">재혁</strong><br><strong style="color:#2a3a50;font-weight:600">홍경의</strong> · <strong style="color:#2a3a50;font-weight:600">한명숙</strong>의 딸 <strong style="color:#2a3a50;font-weight:600">진솔</strong></p>
     </div>
     <div class="sec sec-dark"><p class="s-label">예식 안내</p><div class="datebox"><p class="datenum">01.16</p><p class="datesub">2027 · Saturday</p><div class="d-div"></div><p class="venue">오후 5시 · H스퀘어웨딩홀</p></div><p class="dday-text" id="dday-text" aria-live="polite">예식일까지 계산 중</p><div class="cd-row"><div class="cd-item"><div class="cd-num" id="days">--</div><div class="cd-unit">Days</div></div><div class="cd-item"><div class="cd-num" id="hours">--</div><div class="cd-unit">Hours</div></div><div class="cd-item"><div class="cd-num" id="minutes">--</div><div class="cd-unit">Min</div></div><div class="cd-item"><div class="cd-num" id="seconds">--</div><div class="cd-unit">Sec</div></div></div></div>
-    <div class="sec"><p class="s-label">Location</p><div class="map-wrap"><div id="naver-map" class="map-canvas">네이버지도를 준비하고 있습니다.<br>Client ID를 설정해 주세요.</div><div class="map-actions"><a class="map-action" id="map-search-link" href="https://map.naver.com/p/" target="_blank" rel="noopener">네이버지도에서 보기</a><a class="map-action" id="map-route-link" href="https://map.naver.com/p/directions/" target="_blank" rel="noopener">길찾기</a></div></div><div class="transport"><div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M8 17l-2 4M16 17l2 4M9 17h6M8 7h8"/><circle cx="8.5" cy="12" r="1"/><circle cx="15.5" cy="12" r="1"/></svg></div><div><p class="t-type">지하철</p><p class="t-desc">2호선 한양대역 1번출구<br>5호선 왕십리역 6번출구</p></div></div><div class="transport"><div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-6l2-5h14l2 5v6h-2M5 11h14"/><path d="M5 17a2 2 0 104 0M15 17a2 2 0 104 0"/></svg></div><div><p class="t-type">주차</p><p class="t-desc">동문회관 예식부 주차장<br>1시간 30분 무료</p></div></div></div>
+    <div class="sec"><p class="s-label">Location</p><div class="map-wrap"><div id="naver-map" class="map-canvas">네이버지도를 준비하고 있습니다.<br>Client ID를 설정해 주세요.</div><div class="map-actions"><a class="map-action" id="map-search-link" href="https://map.naver.com/p/search/한양대학교동문회관" target="_blank" rel="noopener">네이버지도에서 보기</a><a class="map-action" id="map-route-link" href="https://map.naver.com/p/search/한양대학교동문회관" target="_blank" rel="noopener">길찾기</a></div></div><div class="transport"><div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="3"/><path d="M8 17l-2 4M16 17l2 4M9 17h6M8 7h8"/><circle cx="8.5" cy="12" r="1"/><circle cx="15.5" cy="12" r="1"/></svg></div><div><p class="t-type">지하철</p><p class="t-desc">2호선 한양대역 1번출구<br>5호선 왕십리역 6번출구</p></div></div><div class="transport"><div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-6l2-5h14l2 5v6h-2M5 11h14"/><path d="M5 17a2 2 0 104 0M15 17a2 2 0 104 0"/></svg></div><div><p class="t-type">주차</p><p class="t-desc">동문회관 예식부 주차장<br>1시간 30분 무료</p></div></div></div>
     <div class="sec sec-dark">
       <p class="s-label">Information</p>
       <p class="bus-heading">전세버스 안내 (대전 ↔ 서울)</p>
@@ -192,6 +192,8 @@ body{background:#ffffff}.label{color:#666}.phone{border-color:#2a3a5a;box-shadow
   const NAVER_MAP_CLIENT_ID = 'qtedic7otv';
   const VENUE = {
     name: '한양대학교동문회관 H스퀘어웨딩홀',
+    // ✏️ 네이버지도 검색·길찾기에 사용되는 이름 (실제 검색되는 명칭으로)
+    searchName: '한양대학교동문회관',
     address: '서울특별시 성동구 마조로 22-2'
   };
 
@@ -219,8 +221,8 @@ body{background:#ffffff}.label{color:#666}.phone{border-color:#2a3a5a;box-shadow
           window.addEventListener('resize', resizeMap, { passive: true });
           window.addEventListener('orientationchange', resizeMap, { passive: true });
           requestAnimationFrame(resizeMap);
-          document.getElementById('map-search-link').href = `https://map.naver.com/p/search/${encodeURIComponent(VENUE.name)}`;
-          document.getElementById('map-route-link').href = 'https://map.naver.com/p/directions/';
+          document.getElementById('map-search-link').href = `https://map.naver.com/p/search/${encodeURIComponent(VENUE.searchName)}`;
+          document.getElementById('map-route-link').href = `https://map.naver.com/p/directions/-/${result.x},${result.y},${encodeURIComponent(VENUE.searchName)}/-/transit`;
         });
       };
     };
