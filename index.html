@@ -312,57 +312,94 @@ function copyAcc(btn, num) {
   });
 }
 
-// ══ 눈 내리는 효과 ══
+// ══ 눈 내리는 효과 (눈꽃 + 원 / 잔잔하게) ══
 window.addEventListener('load', function() {
   const canvas = document.getElementById('snow-canvas');
   const ctx    = canvas.getContext('2d');
   let flakes   = [];
-  const NUM    = 100;
+
+  // ✏️ 눈 양 조절: 숫자를 키우면 눈이 많아져요 (화면 한 칸당 눈송이 개수)
+  const PER_SCREEN = 25;
+  // ✏️ 눈 속도 조절: 아래 speed 값 (0.7, 2.0)을 키우면 빨라져요
 
   function resize() {
     canvas.width  = document.body.scrollWidth  || window.innerWidth;
     canvas.height = document.body.scrollHeight || window.innerHeight;
   }
 
-  // 폰트·이미지 로드 완료 후 크기 재측정
   resize();
-  setTimeout(resize, 500);
-  window.addEventListener('resize', resize);
+  setTimeout(function(){ resize(); initFlakes(); }, 500);
+  window.addEventListener('resize', function(){ resize(); initFlakes(); });
 
   function randBetween(a, b) { return a + Math.random() * (b - a); }
 
   function initFlakes() {
+    // 페이지 길이에 비례해서 눈송이 개수 계산
+    const screens = Math.max(1, canvas.height / 800);
+    const NUM = Math.round(PER_SCREEN * screens);
     flakes = [];
     for (let i = 0; i < NUM; i++) {
       flakes.push({
         x:     randBetween(0, canvas.width),
-        y:     randBetween(-canvas.height, canvas.height),
-        r:     randBetween(2, 5),
-        speed: randBetween(0.8, 2.5),
-        drift: randBetween(-0.4, 0.4),
-        alpha: randBetween(0.5, 1.0)
+        y:     randBetween(0, canvas.height),
+        r:     randBetween(1.8, 6.5),
+        speed: randBetween(0.7, 2.0),
+        drift: randBetween(-0.3, 0.3),
+        alpha: randBetween(0.35, 0.85),
+        rot:   randBetween(0, Math.PI * 2),
+        spin:  randBetween(-0.009, 0.009)
       });
     }
   }
   initFlakes();
 
+  // 육각 눈꽃 결정
+  function hexFlake(x, y, r, rot, alpha) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot);
+    ctx.strokeStyle = 'rgba(255,255,255,' + alpha + ')';
+    ctx.lineWidth   = Math.max(0.7, r * 0.14);
+    ctx.lineCap     = 'round';
+    for (let i = 0; i < 6; i++) {
+      ctx.rotate(Math.PI / 3);
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, -r); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, -r * 0.55); ctx.lineTo(-r * 0.33, -r * 0.82); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, -r * 0.55); ctx.lineTo( r * 0.33, -r * 0.82); ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // 작은 눈 (원)
+  function circleFlake(x, y, r, alpha, blur) {
+    ctx.save();
+    if (blur) ctx.filter = 'blur(' + blur + 'px)';
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,' + alpha + ')';
+    ctx.fill();
+    ctx.restore();
+  }
+
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    flakes.forEach(f => {
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${f.alpha})`;
-      ctx.fill();
+    flakes.forEach(function(f) {
+      if (f.r > 4.6) {
+        hexFlake(f.x, f.y, f.r, f.rot, f.alpha * 0.9);
+      } else {
+        circleFlake(f.x, f.y, f.r * 0.58, f.alpha, f.r > 3.6 ? 0.9 : 0);
+      }
 
-      f.y += f.speed;
-      f.x += f.drift;
+      f.y   += f.speed;
+      f.x   += f.drift;
+      f.rot += f.spin;
 
-      if (f.y > canvas.height + 10) {
-        f.y = -10;
+      if (f.y > canvas.height + 14) {
+        f.y = -14;
         f.x = randBetween(0, canvas.width);
       }
-      if (f.x < 0)             f.x = canvas.width;
-      if (f.x > canvas.width)  f.x = 0;
+      if (f.x < -14)                f.x = canvas.width + 14;
+      if (f.x > canvas.width + 14)  f.x = -14;
     });
     requestAnimationFrame(draw);
   }
